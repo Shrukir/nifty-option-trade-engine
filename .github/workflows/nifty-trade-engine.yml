@@ -2,14 +2,15 @@ name: Nifty Option Trade Engine
 
 on:
   schedule:
-    - cron: "*/10 9-15 * * 1-5"  # Every 10 minutes during trading hours (IST)
+    - cron: "*/10 3-9 * * 1-5"  # Every 10 mins from 8:30–2:30pm IST (Mon–Fri)
   workflow_dispatch:
 
 jobs:
-  run-engine:
+  run-trade-engine:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -18,7 +19,8 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
 
       - name: Run trade engine
         env:
