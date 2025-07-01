@@ -1,7 +1,5 @@
-beautifulsoup4
-lxml
-scipy
-requests
 pandas
 numpy
-python-telegram-bot
+scipy
+requests
+python-telegram-bot==13.15
